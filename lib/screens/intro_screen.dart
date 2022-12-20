@@ -3,17 +3,18 @@ import 'package:my_library/shared/menu_drawer.dart';
 // #docregion AppLocalizationsImport
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 // #enddocregion AppLocalizationsImport
-
-// #docregion LocalizationDelegatesImport
-import 'package:flutter_localizations/flutter_localizations.dart';
-// #enddocregion LocalizationDelegatesImport
+import '../util/application_helper.dart';
 
 class IntroScreen extends StatelessWidget {
   const IntroScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
+    // ignore: unnecessary_new
+    ApplicationHelper.debug('build', 'IntroScreen');
+
     String testo = 'La mia libreria';
+
     return Scaffold(
       appBar: AppBar(
         title: Text(AppLocalizations.of(context)!.helloWorld),

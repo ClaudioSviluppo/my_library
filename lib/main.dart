@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:my_library/screens/intro_screen.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'dart:developer' as developer;
+
+import 'util/application_helper.dart';
 
 void main(List<String> args) {
   runApp(const MyLibraryApp());
@@ -13,7 +14,8 @@ class MyLibraryApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    developer.log('Starting application', name: 'MyLibraryApp');
+    ApplicationHelper.debug('Starting application', 'MyLibraryApp');
+
     return const MaterialApp(localizationsDelegates: [
       AppLocalizations.delegate, // Add this line
       GlobalMaterialLocalizations.delegate,
