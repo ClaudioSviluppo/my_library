@@ -1,5 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:my_library/shared/menu_drawer.dart';
+// #docregion AppLocalizationsImport
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+// #enddocregion AppLocalizationsImport
+
+// #docregion LocalizationDelegatesImport
+import 'package:flutter_localizations/flutter_localizations.dart';
+// #enddocregion LocalizationDelegatesImport
 
 class IntroScreen extends StatelessWidget {
   const IntroScreen({super.key});
@@ -8,7 +15,10 @@ class IntroScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     String testo = 'La mia libreria';
     return Scaffold(
-      appBar: AppBar(title: const Text('My Library')),
+      appBar: AppBar(
+        title: Text(AppLocalizations.of(context)!.helloWorld),
+        backgroundColor: Colors.blueGrey,
+      ),
       // body: welcomeMessage('Il mio Archivio'), get TextBox  da metodo
       drawer: const MenuDrawer(),
       body: Container(
