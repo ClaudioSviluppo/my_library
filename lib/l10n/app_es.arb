@@ -4,5 +4,6 @@
     "appName" : "Mi biblioteca",
     "pageLoginUsername" : "Il tuo username",
     "pageLoginPassword" : "La tua password",
-    "appDescription": "Questa è la tua applicazione di archivio"
+    "appDescription": "Questa è la tua applicazione di archivio",
+    "menu":"Menu"
 }

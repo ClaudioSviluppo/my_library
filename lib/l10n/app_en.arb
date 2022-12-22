@@ -21,5 +21,6 @@
          }
       }
    },
-   "appDescription": "This is your Archive App"
+   "appDescription": "This is your Archive App",
+   "menu":"Menu"
 }
