@@ -3,5 +3,6 @@
     "username": "Benvenuto {user}",
     "appName" : "La mia libreria",
     "pageLoginUsername" : "Il tuo username",
-    "pageLoginPassword" : "La tua password"
+    "pageLoginPassword" : "La tua password",
+    "appDescription": "Questa è la tua applicazione di archivio"
 }

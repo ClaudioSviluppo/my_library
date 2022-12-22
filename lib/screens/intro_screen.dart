@@ -13,11 +13,12 @@ class IntroScreen extends StatelessWidget {
     // ignore: unnecessary_new
     ApplicationHelper.debug('build', 'IntroScreen');
 
-    String testo = 'La mia libreria';
+    String welcomeMessage = AppLocalizations.of(context)!.username('Claudio');
+    String desc = AppLocalizations.of(context)!.appDescription;
 
     return Scaffold(
       appBar: AppBar(
-        title: Text(AppLocalizations.of(context)!.helloWorld),
+        title: Text(AppLocalizations.of(context)!.appName),
         backgroundColor: Colors.blueGrey,
       ),
       // body: welcomeMessage('Il mio Archivio'), get TextBox  da metodo
@@ -37,7 +38,7 @@ class IntroScreen extends StatelessWidget {
             ),
             child: Text(
               textAlign: TextAlign.center,
-              AppLocalizations.of(context)!.username('Claudio'),
+              "$welcomeMessage\n$desc",
               overflow: TextOverflow.ellipsis,
               style: const TextStyle(
                   color: Colors.blue,
