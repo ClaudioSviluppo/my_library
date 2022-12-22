@@ -17,6 +17,7 @@ class MyLibraryApp extends StatelessWidget {
     ApplicationHelper.debug('Starting application', 'MyLibraryApp');
 
     return const MaterialApp(localizationsDelegates: [
+      //Setup Localization delegate
       AppLocalizations.delegate, // Add this line
       GlobalMaterialLocalizations.delegate,
       GlobalWidgetsLocalizations.delegate,
@@ -25,6 +26,7 @@ class MyLibraryApp extends StatelessWidget {
       Locale('en', ''), // English, no country code
       Locale('es', ''), // Spanish, no country code
       Locale('it', ''), // Italian, no country code
+      Locale('de', ''), // German, no country code
     ], home: IntroScreen());
   }
 }
