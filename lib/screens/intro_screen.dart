@@ -37,7 +37,7 @@ class IntroScreen extends StatelessWidget {
             ),
             child: Text(
               textAlign: TextAlign.center,
-              'Hello, $testo! \nHow are you?',
+              AppLocalizations.of(context)!.username('Claudio'),
               overflow: TextOverflow.ellipsis,
               style: const TextStyle(
                   color: Colors.blue,

@@ -1,3 +1,7 @@
 {
-    "helloWorld": "¡Hola Mundo!"
+    "helloWorld": "¡Hola Mundo!",
+    "username":"Bienvenido {user}",
+    "appName" : "Mi biblioteca",
+    "pageLoginUsername" : "Il tuo username",
+    "pageLoginPassword" : "La tua password"
 }

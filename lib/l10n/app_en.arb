@@ -1,6 +1,24 @@
 {
-    "helloWorld": "Hello World!",
-    "@helloWorld": {
-      "description": "The conventional newborn programmer greeting"
-    }
+   "@@locale":"en",
+
+  "appName" : "My Library",
+  
+  "pageLoginUsername" : "Your username",
+  "@pageLoginUsername" : {},
+  
+  "pageLoginPassword" : "Your password",
+  "@pageLoginPassword" : {},
+   "helloWorld":"Hello World!",
+   "@helloWorld":{
+      "description":"The conventional newborn programmer greeting"
+   },
+   "username":"Welcome {user}",
+   "@username":{
+      "description":"User logged",
+      "placeholders":{
+         "user":{
+            
+         }
+      }
+   }
 }
