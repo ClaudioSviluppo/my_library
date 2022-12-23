@@ -5,5 +5,10 @@
     "pageLoginUsername" : "Il tuo username",
     "pageLoginPassword" : "La tua password",
     "appDescription": "Questa è la tua applicazione di archivio",
-    "menu":"Menu"
+    "menu":"Menu",
+    "vinyl": "Vinile",
+    "cd": "Cd",
+    "file": "Digitale",
+    "books": "Libri",
+    "music": "Musica"
 }

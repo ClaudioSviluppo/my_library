@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import '../screens/book_screen.dart';
-import '../screens/intro_screen.dart';
 
 class MenuDrawer extends StatelessWidget {
   const MenuDrawer({super.key});
@@ -19,30 +18,32 @@ class MenuDrawer extends StatelessWidget {
     final String menu = AppLocalizations.of(context)!.menu;
     final List<String> menuTitles = [
       'Home',
-      'Dischi',
+      'Musica',
       'Libri',
       'Weather',
       'Training'
     ];
     List<Widget> menuItems = [];
     menuItems.add(DrawerHeader(
-        decoration: BoxDecoration(color: Colors.blueGrey),
-        child:
-            Text(menu, style: TextStyle(color: Colors.white, fontSize: 28))));
+        decoration: const BoxDecoration(color: Colors.blueGrey),
+        child: Text(menu,
+            style: const TextStyle(color: Colors.white, fontSize: 28))));
 
     for (String element in menuTitles) {
       Widget screen = Container();
       menuItems.add(ListTile(
         title: Text(
           element,
-          style: TextStyle(fontSize: 18),
+          style: const TextStyle(fontSize: 18),
         ),
         onTap: () {
           switch (element) {
             case 'Libri':
-              screen = BookScreen();
+              screen = const BookScreen();
               break;
+              default
           }
+          Navigator.of(context).pop();
           Navigator.of(context)
               .push(MaterialPageRoute(builder: (context) => screen));
         },

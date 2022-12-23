@@ -22,5 +22,11 @@
       }
    },
    "appDescription": "This is your Archive App",
-   "menu":"Menu"
+   "menu":"Menu",
+   
+   "vinyl": "vynil",
+   "cd": "cd",
+   "file": "digital",
+   "books": "books",
+   "music": "Music"
 }
