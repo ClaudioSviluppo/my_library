@@ -54,6 +54,29 @@ class IntroScreen extends StatelessWidget {
           ),
         ),
       ),
+      bottomNavigationBar: BottomNavigationBar(
+        items: [
+          BottomNavigationBarItem(
+              icon: const Icon(Icons.home),
+              label: AppLocalizations.of(context)!.home),
+          BottomNavigationBarItem(
+              icon: const Icon(Icons.settings),
+              label: AppLocalizations.of(context)!.settings),
+        ],
+        //Al tap arriva l'ince dell'elemento così come posizionato
+        //Nell'array BottomNAvigationBar
+        onTap: (int index) {
+          switch (index) {
+            case 0:
+              Navigator.pushNamed(context, '/');
+              break;
+            case 1:
+              Navigator.pushNamed(context, '/settings');
+              break;
+            default:
+          }
+        },
+      ),
     );
   }
 

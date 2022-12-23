@@ -10,5 +10,8 @@
     "cd": "Cd",
     "file": "Digitale",
     "books": "Libri",
-    "music": "Musica"
+    "music": "Musica",
+    "home": "Home",
+    "info": "Info",
+    "settings":"Impostazioni"
 }
