@@ -1,6 +1,11 @@
+import 'dart:collection';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:my_library/screens/music_screen.dart';
+import 'package:my_library/shared/model_translate.dart';
 import '../screens/book_screen.dart';
+import '../screens/intro_screen.dart';
 
 class MenuDrawer extends StatelessWidget {
   const MenuDrawer({super.key});
@@ -23,26 +28,44 @@ class MenuDrawer extends StatelessWidget {
       'Weather',
       'Training'
     ];
+
+    final List<ModelTranslate> menuTitles2 = [
+      ModelTranslate("Home", "Home"),
+      ModelTranslate("Musica", AppLocalizations.of(context)!.music),
+      ModelTranslate("Libri", AppLocalizations.of(context)!.books),
+      ModelTranslate("Weather", "Weather"),
+      ModelTranslate("Training", "Weather")
+    ];
     List<Widget> menuItems = [];
     menuItems.add(DrawerHeader(
         decoration: const BoxDecoration(color: Colors.blueGrey),
         child: Text(menu,
             style: const TextStyle(color: Colors.white, fontSize: 28))));
 
-    for (String element in menuTitles) {
+    for (ModelTranslate element in menuTitles2) {
       Widget screen = Container();
       menuItems.add(ListTile(
         title: Text(
-          element,
+          element.value,
           style: const TextStyle(fontSize: 18),
         ),
         onTap: () {
-          switch (element) {
+          switch (element.key) {
+            case 'Home':
+              screen = const IntroScreen();
+              break;
+            case 'BMI Calculator':
+              screen = const IntroScreen();
+              break;
+            case 'Musica':
+              screen = const MusicScreen();
+              break;
             case 'Libri':
               screen = const BookScreen();
               break;
-              default
+            default:
           }
+
           Navigator.of(context).pop();
           Navigator.of(context)
               .push(MaterialPageRoute(builder: (context) => screen));

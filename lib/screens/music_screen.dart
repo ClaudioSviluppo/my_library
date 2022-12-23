@@ -7,7 +7,7 @@ class MusicScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(title: Text('Missing string')),
+        appBar: AppBar(title: Text(AppLocalizations.of(context)!.music)),
         body: const Center(child: FlutterLogo()));
   }
 }
