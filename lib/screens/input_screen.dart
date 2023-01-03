@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
@@ -5,6 +7,7 @@ import '../shared/menu_drawer.dart';
 
 class InputScreen extends StatelessWidget {
   InputScreen({super.key});
+  final TextEditingController txtDescription = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -14,40 +17,76 @@ class InputScreen extends StatelessWidget {
         backgroundColor: Colors.blueGrey,
       ),
       drawer: const MenuDrawer(),
-      body: titleSection,
+      body: ListView(children: getContent()),
     );
   }
 
-  Widget titleSection = Container(
-    padding: const EdgeInsets.all(32),
-    child: Row(
-      children: [
-        InputWidget("Placeholder 1"),
-        InputWidget("Placeholder 2"),
-        InputWidget("Placeholder 3"),
-        InputWidget("Placeholder 4"),
-      ],
-    ),
-  );
-}
+  List<Widget> getContent() {
+    List<Widget> tiles = [];
 
-class InputWidget extends StatelessWidget {
-  String label;
+    tiles.add(author());
+    tiles.add(Container(
+      color: Colors.blueAccent,
+      child: Row(
+        children: <Widget>[
+          Expanded(
+            child: Container(
+                margin: const EdgeInsets.fromLTRB(20, 50, 20, 50),
+                child: const TextField(
+                  obscureText: true,
+                  decoration: InputDecoration(
+                      border: OutlineInputBorder(),
+                      labelText: "Inserisci Autore"),
+                )),
+          ),
+          FloatingActionButton(
+              onPressed: () {
+                print("FloatingActionButton2");
+              },
+              tooltip: 'Inserisci Autore',
+              child: const Icon(Icons.mic)),
+          FloatingActionButton(
+              onPressed: () {
+                print("FloatingActionButton3");
+              },
+              tooltip: 'Edit Autore',
+              child: const Icon(Icons.edit)),
+          FloatingActionButton(
+              onPressed: () {
+                print("FloatingActionButton4");
+              },
+              tooltip: 'Annulla Autore',
+              child: const Icon(Icons.delete)),
+        ],
+      ),
+    ));
 
-  InputWidget(
-    String this.label, {
-    Key? key,
-  }) : super(key: key);
+    return tiles;
+  }
 
-  @override
-  Widget build(BuildContext context) {
+  Container author() {
     return Container(
-      padding: const EdgeInsets.all(10),
-      margin: const EdgeInsets.all(15.0),
-      decoration: BoxDecoration(
-          border: Border.all(color: Colors.blueAccent),
-          borderRadius: BorderRadius.circular(10)),
-      child: Text(label),
+      margin: const EdgeInsets.fromLTRB(20, 50, 20, 20),
+      child: const TextField(
+        obscureText: true,
+        decoration: InputDecoration(
+            border: OutlineInputBorder(), labelText: "Inserisci Autore"),
+      ),
+    );
+  }
+
+  Row getRowauthor() {
+    return Row(
+      children: [
+        Container(
+          margin: const EdgeInsets.fromLTRB(20, 50, 20, 20),
+          child: const TextField(
+            obscureText: true,
+            decoration: InputDecoration(
+                border: OutlineInputBorder(), labelText: "Inserisci Autore"),
+          ),
+        ),
+      ],
     );
   }
 }
