@@ -13,5 +13,7 @@
     "music": "Musica",
     "home": "Home",
     "info": "Info",
-    "settings":"Impostazioni"
+    "settings":"Impostazioni",
+    "insert" : "Inserisci"
+
 }

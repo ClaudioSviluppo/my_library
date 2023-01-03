@@ -6,6 +6,7 @@ import 'package:my_library/screens/music_screen.dart';
 import 'package:my_library/shared/model_translate.dart';
 import '../screens/book_screen.dart';
 import '../screens/intro_screen.dart';
+import '../screens/input_screen.dart';
 
 class MenuDrawer extends StatelessWidget {
   const MenuDrawer({super.key});
@@ -26,7 +27,8 @@ class MenuDrawer extends StatelessWidget {
       'Musica',
       'Libri',
       'Weather',
-      'Training'
+      'Training',
+      'Input'
     ];
 
     final List<ModelTranslate> menuTitles2 = [
@@ -34,7 +36,8 @@ class MenuDrawer extends StatelessWidget {
       ModelTranslate("Musica", AppLocalizations.of(context)!.music),
       ModelTranslate("Libri", AppLocalizations.of(context)!.books),
       ModelTranslate("Weather", "Weather"),
-      ModelTranslate("Training", "Weather")
+      ModelTranslate("Training", "Training"),
+      ModelTranslate("Input", AppLocalizations.of(context)!.insert),
     ];
     List<Widget> menuItems = [];
     menuItems.add(DrawerHeader(
@@ -62,6 +65,9 @@ class MenuDrawer extends StatelessWidget {
               break;
             case 'Libri':
               screen = const BookScreen();
+              break;
+            case 'Input':
+              screen = InputScreen();
               break;
             default:
           }

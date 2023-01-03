@@ -31,5 +31,6 @@
    "music": "Music",
    "home": "Home",
    "info": "Info",
-   "settings":"Settings"
+   "settings":"Settings",
+   "insert" : "Insert"
 }

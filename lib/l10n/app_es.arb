@@ -13,5 +13,6 @@
     "music": "Música",
     "home": "Casa",
     "info": "Información",
-    "settings":"Ajustes"
+    "settings":"Ajustes",
+    "insert" : "Poner"
 }
