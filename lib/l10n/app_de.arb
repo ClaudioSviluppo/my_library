@@ -14,5 +14,12 @@
     "home": "Zuhause",
     "info": "Information",
     "settings":"Einstellungen",
-    "insert" : "Einführen"
+    "insert" : "Einführen",
+    "modality" : "Modus",
+    "modalityTypeV" : "Vokal",
+    "modalityTypeE" : "Bearbeiten",
+    "author" : "Schriftsteller",
+    "title" : "Title",
+    "delete" : "löschen"
 }
+

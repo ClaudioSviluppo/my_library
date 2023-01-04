@@ -1,102 +1,112 @@
-import 'dart:ui';
-
 import 'package:flutter/material.dart';
+import '../shared/menu_drawer.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
-import '../shared/menu_drawer.dart';
+class MyInputScreen extends StatefulWidget {
+  const MyInputScreen({super.key});
 
-class InputScreen extends StatelessWidget {
-  InputScreen({super.key});
-  final TextEditingController txtDescription = TextEditingController();
+  @override
+  State<MyInputScreen> createState() => _MyInputScreenState();
+}
 
+class _MyInputScreenState extends State<MyInputScreen> {
+  String title = '';
+  String hintAuthor = '';
+  String hintTitle = '';
+  String inserisci = '';
+  String hintBtnV = '';
+  String hintBtnE = '';
+  String hintBtnCancella = '';
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Inserisci"),
+        title: Text(AppLocalizations.of(context)!.insert),
         backgroundColor: Colors.blueGrey,
       ),
       drawer: const MenuDrawer(),
-      body: ListView(children: getContent()),
+      body: ListView(
+        padding: const EdgeInsets.all(8),
+        children: [
+          getFirstContainer('Titolo prima riga'),
+          getRow(
+              context,
+              AppLocalizations.of(context)!.insert,
+              AppLocalizations.of(context)!.author,
+              AppLocalizations.of(context)!.modality,
+              AppLocalizations.of(context)!.modalityTypeE,
+              AppLocalizations.of(context)!.modalityTypeV,
+              AppLocalizations.of(context)!.delete),
+          getRow(
+              context,
+              AppLocalizations.of(context)!.insert,
+              AppLocalizations.of(context)!.title,
+              AppLocalizations.of(context)!.modality,
+              AppLocalizations.of(context)!.modalityTypeE,
+              AppLocalizations.of(context)!.modalityTypeV,
+              AppLocalizations.of(context)!.delete)
+        ],
+      ),
     );
   }
 
-  List<Widget> getContent() {
-    List<Widget> tiles = [];
-
-    tiles.add(author());
-    tiles.add(Container(
-      margin: const EdgeInsets.all(20),
-      color: Colors.blueAccent,
-      child: Row(
-        children: <Widget>[
-          Expanded(
+  Row getRow(BuildContext context, String inserisci, String autore,
+      String modalita, String typeEdit, String typeVocal, String elimina) {
+    setState(() {
+      hintAuthor = '$inserisci $autore';
+      hintBtnV = '$modalita  $typeVocal';
+      hintBtnE = '$modalita  $typeEdit';
+      hintBtnCancella = '$elimina $autore';
+    });
+    return Row(
+      children: <Widget>[
+        Expanded(
             child: Container(
-                margin: const EdgeInsets.fromLTRB(20, 50, 20, 50),
-                child: const TextField(
+                margin: const EdgeInsets.all(20),
+                color: Colors.blueAccent,
+                child: TextField(
                   obscureText: true,
                   decoration: InputDecoration(
-                      border: OutlineInputBorder(),
-                      labelText: "Inserisci Autore"),
-                )),
-          ),
-          Container(
+                      border: const OutlineInputBorder(),
+                      labelText: hintAuthor),
+                ))),
+        Container(
             margin: const EdgeInsets.all(20),
             child: FloatingActionButton(
                 onPressed: () {
-                  print("FloatingActionButton2");
+                  print("FloatingActionButton1");
                 },
-                tooltip: 'Inserisci Autore',
-                child: const Icon(Icons.mic)),
-          ),
-          Container(
+                tooltip: hintBtnV,
+                child: const Icon(Icons.mic))),
+        Container(
             margin: const EdgeInsets.all(20),
             child: FloatingActionButton(
                 onPressed: () {
-                  print("FloatingActionButton3");
+                  print("FloatingActionButton1");
                 },
-                tooltip: 'Edit Autore',
-                child: const Icon(Icons.edit)),
-          ),
-          Container(
+                tooltip: hintBtnE,
+                child: const Icon(Icons.edit))),
+        Container(
             margin: const EdgeInsets.all(20),
             child: FloatingActionButton(
                 onPressed: () {
                   print("FloatingActionButton4");
                 },
-                tooltip: 'Annulla Autore',
-                child: const Icon(Icons.delete)),
-          ),
-        ],
-      ),
-    ));
-
-    return tiles;
-  }
-
-  Container author() {
-    return Container(
-      margin: const EdgeInsets.fromLTRB(20, 50, 20, 20),
-      child: const TextField(
-        obscureText: true,
-        decoration: InputDecoration(
-            border: OutlineInputBorder(), labelText: "Inserisci Autore"),
-      ),
+                tooltip: hintBtnCancella,
+                child: const Icon(Icons.delete))),
+      ],
     );
   }
 
-  Row getRowauthor() {
-    return Row(
-      children: [
-        Container(
-          margin: const EdgeInsets.fromLTRB(20, 50, 20, 20),
-          child: const TextField(
-            obscureText: true,
-            decoration: InputDecoration(
-                border: OutlineInputBorder(), labelText: "Inserisci Autore"),
-          ),
-        ),
-      ],
+  Container getFirstContainer(String value) {
+    setState(() {
+      title = value;
+    });
+    return Container(
+      height: 50,
+      color: Colors.amber[500],
+      alignment: Alignment.center,
+      child: Text(title),
     );
   }
 }

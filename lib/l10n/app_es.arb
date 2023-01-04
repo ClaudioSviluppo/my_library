@@ -14,5 +14,11 @@
     "home": "Casa",
     "info": "Información",
     "settings":"Ajustes",
-    "insert" : "Poner"
+    "insert" : "Poner",
+    "modality" : "Modo",
+    "modalityTypeV" : "Vocal",
+    "modalityTypeE" : "Editar",
+    "author" : "Autor",
+    "title" : "Título",
+    "delete" : "Cancela"
 }

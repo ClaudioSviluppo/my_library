@@ -32,5 +32,11 @@
    "home": "Home",
    "info": "Info",
    "settings":"Settings",
-   "insert" : "Insert"
+   "insert" : "Insert",
+   "modality" : "Modality",
+   "modalityTypeV" : "Vocal",
+   "modalityTypeE" : "Edit",
+   "author" : "Author",
+   "title" : "Title",
+   "delete" : "Delete"
 }

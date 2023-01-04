@@ -67,7 +67,7 @@ class MenuDrawer extends StatelessWidget {
               screen = const BookScreen();
               break;
             case 'Input':
-              screen = InputScreen();
+              screen = const MyInputScreen();
               break;
             default:
           }

@@ -14,6 +14,11 @@
     "home": "Home",
     "info": "Info",
     "settings":"Impostazioni",
-    "insert" : "Inserisci"
-
+    "insert" : "Inserisci",
+    "modality" : "Modalità",
+    "modalityTypeV" : "Vocale",
+    "modalityTypeE" : "Modifica",
+    "author" : "Autore",
+    "title" : "Titolo",
+    "delete" : "Cancella"
 }
