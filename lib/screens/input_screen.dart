@@ -26,6 +26,7 @@ class InputScreen extends StatelessWidget {
 
     tiles.add(author());
     tiles.add(Container(
+      margin: const EdgeInsets.all(20),
       color: Colors.blueAccent,
       child: Row(
         children: <Widget>[
@@ -39,24 +40,33 @@ class InputScreen extends StatelessWidget {
                       labelText: "Inserisci Autore"),
                 )),
           ),
-          FloatingActionButton(
-              onPressed: () {
-                print("FloatingActionButton2");
-              },
-              tooltip: 'Inserisci Autore',
-              child: const Icon(Icons.mic)),
-          FloatingActionButton(
-              onPressed: () {
-                print("FloatingActionButton3");
-              },
-              tooltip: 'Edit Autore',
-              child: const Icon(Icons.edit)),
-          FloatingActionButton(
-              onPressed: () {
-                print("FloatingActionButton4");
-              },
-              tooltip: 'Annulla Autore',
-              child: const Icon(Icons.delete)),
+          Container(
+            margin: const EdgeInsets.all(20),
+            child: FloatingActionButton(
+                onPressed: () {
+                  print("FloatingActionButton2");
+                },
+                tooltip: 'Inserisci Autore',
+                child: const Icon(Icons.mic)),
+          ),
+          Container(
+            margin: const EdgeInsets.all(20),
+            child: FloatingActionButton(
+                onPressed: () {
+                  print("FloatingActionButton3");
+                },
+                tooltip: 'Edit Autore',
+                child: const Icon(Icons.edit)),
+          ),
+          Container(
+            margin: const EdgeInsets.all(20),
+            child: FloatingActionButton(
+                onPressed: () {
+                  print("FloatingActionButton4");
+                },
+                tooltip: 'Annulla Autore',
+                child: const Icon(Icons.delete)),
+          ),
         ],
       ),
     ));
