@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:my_library/data/libri.dart';
+import 'package:my_library/data/sp_helper.dart';
 
 class LibriScreen extends StatefulWidget {
   const LibriScreen({super.key});
@@ -11,6 +13,15 @@ class _LibriScreen extends State<LibriScreen> {
   final TextEditingController txtAuthor = TextEditingController();
   final TextEditingController txtTitle = TextEditingController();
   final TextEditingController txtGenere = TextEditingController();
+  final SPHelper helper = SPHelper();
+  List<Book> books = [];
+
+  @override
+  void initState() {
+    helper.init();
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -80,7 +91,28 @@ class _LibriScreen extends State<LibriScreen> {
                 ],
               ),
             ),
+            actions: [
+              TextButton(
+                child: Text('Cancel'),
+                onPressed: () {
+                  Navigator.pop(context);
+                  txtTitle.text = '';
+                  txtAuthor.text = '';
+                  txtGenere.text = '';
+                },
+              ),
+              ElevatedButton(onPressed: saveBook, child: Text('Save'))
+            ],
           );
         });
+  }
+
+  Future saveBook() async {
+    Book newBook = new Book(1, txtAuthor.text, txtTitle.text, txtGenere.text);
+    helper.writeBook(newBook);
+    txtTitle.text = '';
+    txtAuthor.text = '';
+    txtGenere.text = '';
+    Navigator.pop(context);
   }
 }
