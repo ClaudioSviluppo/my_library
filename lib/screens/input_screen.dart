@@ -37,7 +37,7 @@ class _MyInputScreenState extends State<MyInputScreen> {
               AppLocalizations.of(context)!.modalityTypeE,
               AppLocalizations.of(context)!.modalityTypeV,
               AppLocalizations.of(context)!.delete),
-          getRow(
+          getRowb(
               context,
               AppLocalizations.of(context)!.insert,
               AppLocalizations.of(context)!.title,
@@ -51,6 +51,66 @@ class _MyInputScreenState extends State<MyInputScreen> {
   }
 
   Row getRow(BuildContext context, String inserisci, String autore,
+      String modalita, String typeEdit, String typeVocal, String elimina) {
+    setState(() {
+      hintAuthor = '$inserisci $autore';
+      hintBtnV = '$modalita  $typeVocal';
+      hintBtnE = '$modalita  $typeEdit';
+      hintBtnCancella = '$elimina $autore';
+    });
+    return Row(
+      children: <Widget>[
+        Expanded(
+            child: Container(
+                margin: EdgeInsets.fromLTRB(10, 10, 10, 10),
+                padding: EdgeInsets.all(10),
+                color: Colors.blueAccent,
+                child: Text("aa"))),
+        Container(
+            margin: EdgeInsets.fromLTRB(3, 3, 3, 3),
+            color: Colors.red[200],
+            child: Text("bb")),
+        Container(
+            margin: EdgeInsets.fromLTRB(3, 3, 3, 3),
+            color: Colors.blueAccent,
+            child: Text("cc")),
+        Container(
+            margin: EdgeInsets.fromLTRB(3, 3, 3, 3),
+            color: Colors.red[200],
+            child: Text("cc"))
+      ],
+    );
+  }
+
+  Row getRowb(BuildContext context, String inserisci, String autore,
+      String modalita, String typeEdit, String typeVocal, String elimina) {
+    setState(() {
+      hintAuthor = '$inserisci $autore';
+      hintBtnV = '$modalita  $typeVocal';
+      hintBtnE = '$modalita  $typeEdit';
+      hintBtnCancella = '$elimina $autore';
+    });
+    return Row(
+      children: <Widget>[
+        Expanded(
+            child: Container(
+                margin: EdgeInsets.fromLTRB(5, 10, 10, 10),
+                padding: EdgeInsets.all(10),
+                color: Colors.blueAccent,
+                child: Text("aa"))),
+        Container(
+            margin: const EdgeInsets.all(5),
+            child: FloatingActionButton(
+                onPressed: () {
+                  print("FloatingActionButton1");
+                },
+                tooltip: hintBtnV,
+                child: const Icon(Icons.mic))),
+      ],
+    );
+  }
+
+  Row getRow2(BuildContext context, String inserisci, String autore,
       String modalita, String typeEdit, String typeVocal, String elimina) {
     setState(() {
       hintAuthor = '$inserisci $autore';
