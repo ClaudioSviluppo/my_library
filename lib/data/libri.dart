@@ -1,3 +1,9 @@
+final String tableName = 'books';
+final String columnId = '_id';
+final String columnTitle = 'title';
+final String columnAuthor = 'author';
+final String columnCategory = 'category';
+
 class Book {
   int id = 0;
   String author = '';

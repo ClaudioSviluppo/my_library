@@ -19,10 +19,26 @@ class SPHelper {
 
     //Set è una lista non ordinata, mentre List è una lista ordinata
     Set<String> keys = prefs.getKeys();
-    keys.forEach((String key) {
-      Book book = Book.fromJson(jsonDecode(prefs.getString(key) ?? ''));
-      books.add(book);
-    });
+    for (var key in keys) {
+      if (key != 'counter') {
+        Book book = Book.fromJson(jsonDecode(prefs.getString(key) ?? ''));
+        books.add(book);
+      }
+    }
     return books;
+  }
+
+  Future setCounter() async {
+    int counter = prefs.getInt('counter') ?? 0;
+    counter++;
+    await prefs.setInt('counter', counter);
+  }
+
+  int getCounter() {
+    return prefs.getInt('counter') ?? 0;
+  }
+
+  Future deleteBook(int id) async {
+    prefs.remove(id.toString());
   }
 }

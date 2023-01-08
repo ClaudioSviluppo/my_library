@@ -1,0 +1,3 @@
+flutter run -d chrome --web-port=8080
+
+flutter gen-l10n

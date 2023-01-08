@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:my_library/data/libri.dart';
 import 'package:my_library/data/sp_helper.dart';
+import '../data/sql_statement.dart';
 
 class LibriScreen extends StatefulWidget {
   const LibriScreen({super.key});
@@ -15,10 +16,11 @@ class _LibriScreen extends State<LibriScreen> {
   final TextEditingController txtGenere = TextEditingController();
   final SPHelper helper = SPHelper();
   List<Book> books = [];
+  SQlStatement sqlStatement = SQlStatement();
 
   @override
   void initState() {
-    helper.init();
+    helper.init().then((value) => updateScreen());
     super.initState();
   }
 
@@ -35,9 +37,7 @@ class _LibriScreen extends State<LibriScreen> {
                   color: Colors.amber,
                   margin: const EdgeInsets.all(20),
                   child: FloatingActionButton(
-                    onPressed: () {
-                      print('Microfono');
-                    },
+                    onPressed: () {},
                     child: const Icon(Icons.mic),
                   )),
               Container(
@@ -55,16 +55,7 @@ class _LibriScreen extends State<LibriScreen> {
         appBar: AppBar(
           title: const Text('Set Title TBD'),
         ),
-        body: ListView(
-          children: [
-            Expanded(
-                child: Container(
-              margin: EdgeInsets.all(10),
-              color: Colors.lightGreen,
-              child: Text("GGGG"),
-            ))
-          ],
-        ));
+        body: ListView(children: getContent()));
   }
 
   Future<dynamic> showBookDialog(BuildContext context) async {
@@ -95,6 +86,7 @@ class _LibriScreen extends State<LibriScreen> {
               TextButton(
                 child: Text('Cancel'),
                 onPressed: () {
+                  print(sqlStatement.sqlLibri);
                   Navigator.pop(context);
                   txtTitle.text = '';
                   txtAuthor.text = '';
@@ -108,11 +100,34 @@ class _LibriScreen extends State<LibriScreen> {
   }
 
   Future saveBook() async {
-    Book newBook = new Book(1, txtAuthor.text, txtTitle.text, txtGenere.text);
-    helper.writeBook(newBook);
+    int id = helper.getCounter() + 1;
+    Book newBook = Book(id, txtAuthor.text, txtTitle.text, txtGenere.text);
+    helper.writeBook(newBook).then((_) => updateScreen());
+    helper.setCounter();
     txtTitle.text = '';
     txtAuthor.text = '';
     txtGenere.text = '';
     Navigator.pop(context);
+  }
+
+  List<Widget> getContent() {
+    List<Widget> tiles = [];
+    for (var book in books) {
+      tiles.add(Dismissible(
+        key: UniqueKey(),
+        onDismissed: (_) {
+          helper.deleteBook(book.id).then((value) => updateScreen());
+        },
+        child: ListTile(
+            title: Text(book.title),
+            subtitle: Text('${book.author} - ${book.type}')),
+      ));
+    }
+    return tiles;
+  }
+
+  void updateScreen() {
+    books = helper.getBooks();
+    setState(() {});
   }
 }
